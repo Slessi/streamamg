@@ -1,0 +1,23 @@
+{
+  "name": "streamamg",
+  "version": "1.0.0",
+  "description": "Stream AMG interview assignment",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Slessi/streamamg.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Slessi/streamamg/issues"
+  },
+  "homepage": "https://github.com/Slessi/streamamg#readme",
+  "dependencies": {
+    "express": "^4.15.4",
+    "hls.js": "^0.7.11"
+  }
+}
