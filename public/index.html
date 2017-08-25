@@ -39,7 +39,7 @@
             <input type="range" id="seek-bar" value="0">
 
             <i class="fa" id="mute" ng-class="{'fa-volume-up': vm.video.volume >= 0.5, 'fa-volume-down': vm.video.volume > 0 && vm.video.volume < 0.5, 'fa-volume-off': vm.video.volume == 0}"></i>
-            <input type="range" id="volume-bar" min="0" max="1" step="0.1" value="1">
+            <input type="range" id="volume-bar" min="0" max="1" step="0.1" ng-model="vm.video.volume">
 
             <span>{{vm.video.currentTime | time}} / {{vm.video.duration | time}}</span>
 

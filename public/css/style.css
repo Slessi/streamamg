@@ -46,6 +46,12 @@ body {
     cursor: pointer;
 }
 
+#video-controls > input[type=range] {
+    height: 24px;
+    max-width: 200px;
+    padding: 0;
+}
+
 #video-controls > i {
     width: 15px;
     margin: 0 5px;
@@ -67,12 +73,12 @@ body {
 
     border-radius: 20px;
     font-size: 90pt;
-    background: rgba(0,0,0,0.5);
-    color: rgba(255,255,255,0.9);
+    background: rgba(0, 0, 0, 0.5);
+    color: rgba(255, 255, 255, 0.9);
 }
 
 video::-webkit-media-controls {
-    display:none !important;
+    display: none !important;
 }
 
 #source-list {

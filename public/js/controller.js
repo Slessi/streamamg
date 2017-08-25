@@ -92,8 +92,6 @@
         }
 
         function onVolumeChange() {
-            volumeBar.value = video.volume;
-
             $scope.$digest();
         }
 
@@ -113,19 +111,19 @@
         }
 
         function onFullScreenClick() {
-            var fullSreenElement = null;
+            var fullscreenElement = null;
 
             if (document.fullscreenElement) {
-                fullSreenElement = document.fullscreenElement;
+                fullscreenElement = document.fullscreenElement;
             } else if (document.mozFullscreenElement) {
-                fullSreenElement = document.mozFullscreenElement;
+                fullscreenElement = document.mozFullscreenElement;
             } else if (document.webkitFullscreenElement) {
-                fullSreenElement = document.webkitFullscreenElement;
+                fullscreenElement = document.webkitFullscreenElement;
             } else if (document.msFullscreenElement) {
-                fullSreenElement = document.msFullscreenElement;
+                fullscreenElement = document.msFullscreenElement;
             }
 
-            var isFullscreen = fullSreenElement !== null;
+            var isFullscreen = fullscreenElement !== null;
 
             if (isFullscreen) {
                 if (document.exitFullscreen) {
