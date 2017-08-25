@@ -21,8 +21,8 @@
     <script src="js/controller.js"></script>
 </head>
 
-<body>
-    <div id="video-container" ng-controller="VideoController as vm">
+<body ng-controller="VideoController as vm">
+    <div id="video-container">
         <!-- Video -->
         <video id="video">
             <p>Your browser doesn't support HTML5 video.</p>
@@ -43,7 +43,13 @@
 
             <span>{{vm.video.currentTime | time}} / {{vm.video.duration | time}}</span>
 
+            <ul id="source-list" ng-show="vm.selectingSource">
+                <li ng-class="{'active': vm.currentSource == -1}" ng-click="vm.setSource(-1)">Auto</li>
+                <li ng-class="{'active': $index == vm.currentSource}" ng-repeat="source in vm.sources" ng-click="vm.setSource($index)">{{source.bitrate / 1000 | number:0}} kbs</li>
+            </ul>
+
             <i class="fa fa-arrows-alt" id="full-screen"></i>
+            <i class="fa fa-cog" id="select-source" ng-click="vm.selectingSource = !vm.selectingSource"></i>
         </div>
     </div>
 </body>

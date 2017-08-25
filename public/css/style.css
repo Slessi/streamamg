@@ -1,0 +1,95 @@
+body {
+    font-family: 'Arial';
+}
+
+#video-container {
+    position: relative;
+    width: 800px;
+    height: auto;
+    margin: 10px auto;
+}
+
+#video {
+    width: 100%;
+    height: auto;
+}
+
+#video-controls,
+#big-play {
+    z-index: 2147483647;
+}
+
+#video-controls {
+    position: absolute;
+    bottom: 10px;
+    left: 10px;
+    right: 10px;
+
+    background-color: rgba(0, 0, 0, 0.5);
+    border-radius: 5px;
+
+    padding: 5px 10px;
+    color: white;
+
+    -webkit-touch-callout: none; /* iOS Safari */
+    -webkit-user-select: none; /* Safari */
+    -khtml-user-select: none; /* Konqueror HTML */
+    -moz-user-select: none; /* Firefox */
+    -ms-user-select: none; /* Internet Explorer/Edge */
+    user-select: none; /* Non-prefixed version, currently supported by Chrome and Opera */
+}
+
+#video-controls > i,
+#video-controls > input {
+    display: inline-block;
+    vertical-align: middle;
+    cursor: pointer;
+}
+
+#video-controls > i {
+    width: 15px;
+    margin: 0 5px;
+}
+
+#video-controls > #select-source,
+#video-controls > #full-screen {
+    float: right;
+    margin: 5px 5px 0 15px;
+}
+
+#big-play {
+    position: absolute;
+    top: calc(50% - 75px);
+    left: calc(50% - 100px);
+
+    padding: 15px 45px 15px 60px;
+
+    border-radius: 20px;
+    font-size: 90pt;
+    background: rgba(0,0,0,0.5);
+    color: rgba(255,255,255,0.9);
+}
+
+video::-webkit-media-controls {
+    display:none !important;
+}
+
+#source-list {
+    position: absolute;
+    bottom: 40px;
+    right: 20px;
+    background: rgba(0,0,0,0.5);
+    padding: 10px;
+    border-radius: 5px;
+}
+
+#source-list > li {
+    cursor: pointer;
+    padding: 3px 0;
+    text-align: right;
+    opacity: 0.7;
+}
+
+#source-list > li.active {
+    opacity: 1;
+}
