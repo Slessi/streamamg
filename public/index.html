@@ -6,12 +6,46 @@
 
     <meta content="text/html;charset=utf-8" http-equiv="Content-Type">
     <meta content="utf-8" http-equiv="encoding">
+
+    <base href="/">
+
+    <link rel="stylesheet" type="text/css" href="nm/reset-css/reset.css">
+    <link rel="stylesheet" type="text/css" href="nm/font-awesome/css/font-awesome.min.css">
+    <link rel="stylesheet" type="text/css" href="css/style.css">
+
     <script src="nm/hls.js/dist/hls.min.js"></script>
+    <script src="nm/angular/angular.min.js"></script>
+    <script src="js/app.js"></script>
+    <script src="js/app.config.js"></script>
+    <script src="js/time.filter.js"></script>
+    <script src="js/controller.js"></script>
 </head>
 
 <body>
-    <video id="video"></video>
-    <script src="js/script.js"></script>
+    <div id="video-container" ng-controller="VideoController as vm">
+        <!-- Video -->
+        <video id="video">
+            <p>Your browser doesn't support HTML5 video.</p>
+        </video>
+
+        <!-- Center video play button -->
+        <div id="big-play" ng-show="!vm.playing">
+            <i class="fa fa-play" id="big-play-pause"></i>
+        </div>
+
+        <!-- Video Controls -->
+        <div id="video-controls">
+            <i class="fa" id="play-pause" ng-class="{'fa-play': !vm.playing, 'fa-pause': vm.playing}"></i>
+            <input type="range" id="seek-bar" value="0">
+
+            <i class="fa" id="mute" ng-class="{'fa-volume-up': vm.video.volume >= 0.5, 'fa-volume-down': vm.video.volume > 0 && vm.video.volume < 0.5, 'fa-volume-off': vm.video.volume == 0}"></i>
+            <input type="range" id="volume-bar" min="0" max="1" step="0.1" value="1">
+
+            <span>{{vm.video.currentTime | time}} / {{vm.video.duration | time}}</span>
+
+            <i class="fa fa-arrows-alt" id="full-screen"></i>
+        </div>
+    </div>
 </body>
 
 </html>

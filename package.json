@@ -17,7 +17,10 @@
   },
   "homepage": "https://github.com/Slessi/streamamg#readme",
   "dependencies": {
+    "angular": "^1.6.6",
     "express": "^4.15.4",
-    "hls.js": "^0.7.11"
+    "font-awesome": "^4.7.0",
+    "hls.js": "^0.7.11",
+    "reset-css": "^2.2.1"
   }
 }
