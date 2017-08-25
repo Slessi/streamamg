@@ -7,21 +7,21 @@
 
     VideoController.$inject = ['$location', '$scope'];
     function VideoController($location, $scope) {
-        let vm = this;
+        var vm = this;
 
-        let videoSrc = $location.search().src;
-        let lastVolume = 1;
-        let seeking = false;
-        let hls = null;
+        var videoSrc = $location.search().src;
+        var lastVolume = 1;
+        var seeking = false;
+        var hls = null;
 
         // Video player elements
-        let video = document.getElementById('video');
-        let playButton = document.getElementById('play-pause');
-        let bigPlayButton = document.getElementById('big-play-pause');
-        let muteButton = document.getElementById('mute');
-        let fullScreenButton = document.getElementById('full-screen');
-        let seekBar = document.getElementById('seek-bar');
-        let volumeBar = document.getElementById('volume-bar');
+        var video = document.getElementById('video');
+        var playButton = document.getElementById('play-pause');
+        var bigPlayButton = document.getElementById('big-play-pause');
+        var muteButton = document.getElementById('mute');
+        var fullScreenButton = document.getElementById('full-screen');
+        var seekBar = document.getElementById('seek-bar');
+        var volumeBar = document.getElementById('volume-bar');
 
         // Video player events
         video.addEventListener('timeupdate', onVideoTimeUpdate);
@@ -113,7 +113,7 @@
         }
 
         function onFullScreenClick() {
-            let fullSreenElement = null;
+            var fullSreenElement = null;
 
             if (document.fullscreenElement) {
                 fullSreenElement = document.fullscreenElement;
@@ -121,9 +121,11 @@
                 fullSreenElement = document.mozFullscreenElement;
             } else if (document.webkitFullscreenElement) {
                 fullSreenElement = document.webkitFullscreenElement;
+            } else if (document.msFullscreenElement) {
+                fullSreenElement = document.msFullscreenElement;
             }
 
-            let isFullscreen = fullSreenElement !== null;
+            var isFullscreen = fullSreenElement !== null;
 
             if (isFullscreen) {
                 if (document.exitFullscreen) {
@@ -132,6 +134,8 @@
                     document.mozExitFullscreen();
                 } else if (document.webkitExitFullscreen) {
                     document.webkitExitFullscreen();
+                } else if (document.msExitFullscreen) {
+                    document.msExitFullscreen();
                 }
             } else {
                 if (video.requestFullscreen) {
@@ -140,18 +144,20 @@
                     video.mozRequestFullScreen();
                 } else if (video.webkitRequestFullscreen) {
                     video.webkitRequestFullscreen();
+                } else if (video.msRequestFullscreen) {
+                    video.msRequestFullscreen();
                 }
             }
         }
 
         function onSeekBarChange() {
-            let time = video.duration * (seekBar.value / 100);
+            var time = video.duration * (seekBar.value / 100);
 
             video.currentTime = time;
         }
 
         function onVideoTimeUpdate() {
-            let value = (100 / video.duration) * video.currentTime;
+            var value = (100 / video.duration) * video.currentTime;
 
             seekBar.value = value;
 
